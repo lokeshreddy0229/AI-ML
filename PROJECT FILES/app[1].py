@@ -28,19 +28,19 @@ def predict():
         # Make a prediction using the loaded model
         prediction = model.predict(input_data)
         prediction=le5.inverse_transform(prediction)
-        print(prediction[0])
-        if prediction[0]==0:
-            result = "Drug Y has to be taken"
-        elif prediction[0]==1:
-            result = "Drug A has to be taken"
-        elif prediction[0]==2:
-            result = "Drug B has to be taken"
-        elif prediction[0]==3:
-            result = "Drug C has to be taken"
+        print(prediction)
+        if (prediction==0):
+            prediction = "Drug Y has to be taken"
+        elif (prediction==1):
+            prediction = "Drug A has to be taken"
+        elif (prediction==2):
+            prediction = "Drug B has to be taken"
+        elif (prediction==3):
+            prediction = "Drug C has to be taken"
         else:
-            result = "Drug X has to be taken"            
+            prediction = "Drug X has to be taken"            
 
-        return render_template('prediction.html', result=result)
+        return render_template('prediction.html', result=prediction)
 
     return render_template('prediction.html')
 
