@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thyroid Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{'https://media.istockphoto.com/id/1406744414/photo/thyroid-gland.jpg?s=1024x1024&w=is&k=20&c=NrAYenJ4ZMs0Q72eV2w4HG53-YkrmyqhjpvfDuPwhRE='}}">
+</head>
+<body>
+    <h1>Thyroid Prediction</h1>
+    <form method="POST" action="/predict">
+        <label for="bp">Blood Pressure:</label>
+        <input type="number" name="bp" required>
+        <br><br>
+        <label for="cholesterol">Cholesterol:</label>
+        <input type="number" name="cholesterol" required>
+        <br><br>
+        <label for="na_to_k">Na_to_K Ratio:</label>
+        <input type="number" step="0.01" name="na_to_k" required>
+        <br><br>
+        <input type="submit" value="Take Prediction">
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <p>Prediction Result: {{ result }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
